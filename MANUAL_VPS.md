@@ -1,6 +1,6 @@
 # 🚀 Manual de Operação e Deploy na VPS (CyberPanel / AlmaLinux 9)
 
-Este guia contém as instruções exatas para colocar o **Viraliza Reels** no ar em um servidor com CyberPanel/OpenLiteSpeed, como atualizar o sistema com novas funcionalidades e como garantir que seus dados (pedidos e lucros) estejam sempre seguros com backups automatizados a cada 3 horas.
+Este guia contém as instruções exatas para colocar o **EngajaMais** no ar em um servidor com CyberPanel/OpenLiteSpeed, como atualizar o sistema com novas funcionalidades e como garantir que seus dados (pedidos e lucros) estejam sempre seguros com backups automatizados a cada 3 horas.
 
 ---
 
@@ -26,8 +26,8 @@ systemctl enable --now docker
 ### Baixar o Sistema e Subir o Banco
 ```bash
 cd /home
-git clone https://github.com/SEU-USUARIO/viralizareels.git
-cd viralizareels
+git clone https://github.com/SEU-USUARIO/engajamais.git
+cd engajamais
 
 # Subir o Postgres no Docker (porta 5435)
 docker compose up -d
@@ -50,7 +50,7 @@ npm run build
 
 ### Ligar o Sistema Internamente
 ```bash
-pm2 start npm --name "viralizareels" -- start
+pm2 start npm --name "engajamais" -- start
 pm2 save
 pm2 startup
 ```
@@ -58,13 +58,13 @@ pm2 startup
 ### Configurar o Domínio e Proxy Reverso (Via CyberPanel CLI)
 ```bash
 # 1. Cria a estrutura do site no CyberPanel
-cyberpanel createWebsite --package Default --owner admin --domain viralizareels.com --email admin@viralizareels.com --php 8.1
+cyberpanel createWebsite --package Default --owner admin --domain engajamais.shop --email admin@engajamais.shop --php 8.1
 
 # 2. Gera o SSL gratuito (Cadeado Verde)
-cyberpanel issueSSL --domainName viralizareels.com
+cyberpanel issueSSL --domainName engajamais.shop
 
 # 3. Adiciona a regra de Proxy Reverso no arquivo .htaccess
-echo -e "\nRewriteEngine On\nRewriteRule ^(.*)$ http://127.0.0.1:3005/\$1 [P,L]" >> /home/viralizareels.com/public_html/.htaccess
+echo -e "\nRewriteEngine On\nRewriteRule ^(.*)$ http://127.0.0.1:3005/\$1 [P,L]" >> /home/engajamais.shop/public_html/.htaccess
 
 # 4. Reinicia o servidor Web OpenLiteSpeed
 systemctl restart lsws
@@ -77,7 +77,7 @@ systemctl restart lsws
 Sempre que você desenvolver algo novo no seu computador e fizer o `git push`, siga esta rotina na VPS para colocar a novidade no ar sem derrubar o site:
 
 ```bash
-cd /home/viralizareels
+cd /home/engajamais
 
 # 1. Puxa as novidades do Git
 git pull origin main
@@ -93,7 +93,7 @@ npx prisma db push
 npm run build
 
 # 5. Reinicia o sistema sem downtime
-pm2 restart viralizareels
+pm2 restart engajamais
 ```
 
 ---

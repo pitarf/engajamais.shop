@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     const settings = await prisma.systemSetting.findFirst();
     const PUSHINPAY_TOKEN = settings?.pushinpayToken || process.env.PUSHINPAY_TOKEN;
     const WEBHOOK_TOKEN = settings?.pushinpayWebhookToken || process.env.PUSHINPAY_WEBHOOK_TOKEN;
-    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://viralizareels.com';
+    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://engajamais.shop';
     const WEBHOOK_URL = `${APP_URL}/api/webhooks/pushinpay?orderId=${order.id}&token=${WEBHOOK_TOKEN}`;
 
     const response = await fetch("https://api.pushinpay.com.br/api/pix/cashIn", {

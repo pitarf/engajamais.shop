@@ -31,7 +31,7 @@ export function ViralizaHero({ title }: ViralizaHeroProps) {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-5xl md:text-6xl font-[1000] tracking-tight text-[#3b82f6] mb-2 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
           >
-            {title || "ViralizaReels"}
+            {title || "EngajaMais.shop"}
           </motion.h1>
 
           {/* Subtítulo */}

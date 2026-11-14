@@ -1,4 +1,4 @@
-# Manual do Desenvolvedor - Cresce Reels (Top Seguidores)
+# Manual do Desenvolvedor - Engaja Mais (engajamais.shop)
 
 ## Stack Tecnológica
 - **Framework:** Next.js 15 (App Router)

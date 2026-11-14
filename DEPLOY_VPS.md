@@ -1,4 +1,4 @@
-# Guia de Deploy VPS (Docker) - Top Seguidores 🐳
+# Guia de Deploy VPS (Docker) - EngajaMais 🐳
 
 Este guia foca na implantação profissional via **Docker**, garantindo isolamento total, persistência de dados e facilidade de atualização.
 
@@ -27,8 +27,8 @@ sudo systemctl enable --now docker
 ### Clonar o Projeto
 ```bash
 cd /var/www
-git clone https://github.com/pitarf/topseguidores.git
-cd topseguidores
+git clone https://github.com/pitarf/engajamais.git
+cd engajamais
 ```
 
 ### Configurar Variáveis de Ambiente
@@ -39,7 +39,7 @@ nano .env
 **Campos obrigatórios:**
 ```env
 # Banco de Dados (Use os mesmos valores do docker-compose.yml)
-DATABASE_URL="postgresql://admin_user:sua_senha_forte@postgres-db:5432/topseguidores?schema=public"
+DATABASE_URL="postgresql://admin_user:sua_senha_forte@postgres-db:5432/engajamais?schema=public"
 
 # Auth e Segurança
 NEXTAUTH_SECRET="gere_um_segredo_aleatorio"
@@ -72,7 +72,7 @@ Como você já tem outros sistemas, o Nginx servirá como o "maestro", enviando 
 
 ### Configurar Site
 ```bash
-sudo nano /etc/nginx/conf.d/topseguidores.conf
+sudo nano /etc/nginx/conf.d/engajamais.conf
 ```
 
 **Conteúdo:**

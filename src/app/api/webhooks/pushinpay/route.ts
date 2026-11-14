@@ -126,7 +126,7 @@ export async function POST(req: Request) {
               event_name: 'Purchase',
               event_time: Math.floor(Date.now() / 1000),
               action_source: 'website',
-              event_source_url: 'https://viralizareels.com',
+              event_source_url: 'https://engajamais.shop',
               user_data: {
                 client_ip_address: req.headers.get("x-forwarded-for")?.split(',')[0] || req.headers.get("x-real-ip") || "127.0.0.1",
                 client_user_agent: req.headers.get("user-agent") || ""

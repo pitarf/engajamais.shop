@@ -1,6 +1,6 @@
 # 📘 Manual de Operação e Administração: Painel Administrativo
 
-Este documento descreve detalhadamente o funcionamento, a parametrização e os fluxos operacionais do painel de administração da plataforma **Top Seguidores**. Ele serve de guia técnico e operacional para administradores e desenvolvedores gerenciarem o negócio no dia a dia.
+Este documento descreve detalhadamente o funcionamento, a parametrização e os fluxos operacionais do painel de administração da plataforma **EngajaMais**. Ele serve de guia técnico e operacional para administradores e desenvolvedores gerenciarem o negócio no dia a dia.
 
 ---
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SidebarNav } from "./SidebarNav";
 
 export const metadata: Metadata = {
-  title: "Administração - Topseguidores",
+  title: "Administração - EngajaMais",
   robots: {
     index: false,
     follow: false,
@@ -29,7 +29,7 @@ export default function AdministracaoLayout({
                 <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-primary animate-pulse" />
                 Admin<span className="text-primary">Panel</span>
               </h2>
-              <p className="text-[9px] md:text-[10px] font-bold text-zinc-500 tracking-widest uppercase mt-1">Topseguidores System</p>
+              <p className="text-[9px] md:text-[10px] font-bold text-zinc-500 tracking-widest uppercase mt-1">EngajaMais System</p>
             </div>
             
             {/* Botão Sair - Mobile */}

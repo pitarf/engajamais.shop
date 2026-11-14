@@ -12,9 +12,9 @@ export async function getSystemSettings() {
       return await prisma.systemSetting.create({
         data: {
           id: "1",
-          siteTitle: "ViralizaReels - O Melhor do Instagram e TikTok",
+          siteTitle: "EngajaMais.shop - O Melhor do Instagram e TikTok",
           siteDescription: "A melhor plataforma para aumentar seu engajamento no Instagram e TikTok de forma rápida e segura.",
-          siteKeywords: "comprar seguidores, viralizareels, instagram, tiktok, curtidas, visualizações, engajamento",
+          siteKeywords: "comprar seguidores, engajamais, instagram, tiktok, curtidas, visualizações, engajamento",
         },
       });
     }
@@ -28,9 +28,9 @@ export async function getSystemSettings() {
     
     return {
       id: "fallback",
-      siteTitle: "ViralizaReels",
+      siteTitle: "EngajaMais.shop",
       siteDescription: "A melhor plataforma para comprar seguidores, curtidas e visualizações no Instagram e TikTok.",
-      siteKeywords: "comprar seguidores, viralizareels, instagram, tiktok, curtidas, visualizações",
+      siteKeywords: "comprar seguidores, engajamais, instagram, tiktok, curtidas, visualizações",
       showNotifications: true,
       faviconUrl: null,
       logoUrl: null,

@@ -1,4 +1,4 @@
-# 🚀 CHECKLIST DEFINITIVO: Deploy Top Seguidores (VPS)
+# 🚀 CHECKLIST DEFINITIVO: Deploy EngajaMais (VPS)
 
 Siga estes passos exatamente nesta ordem para colocar o site no ar com todos os planos e preços configurados.
 
@@ -18,8 +18,8 @@ git push origin main
 Acesse sua VPS via SSH e vá para a pasta de sites:
 ```bash
 cd /var/www
-git clone https://github.com/pitarf/topseguidores.git
-cd topseguidores
+git clone https://github.com/pitarf/engajamais.git
+cd engajamais
 ```
 
 ---
@@ -52,7 +52,7 @@ docker compose up -d --build
 ### Passo 5: IMPORTANTE - Carregar Planos e Preços
 Agora vamos levar os dados (planos/valores) para o banco da VPS usando o Seed:
 ```bash
-docker exec -it topseguidores-app npx prisma db seed
+docker exec -it engajamais-app npx prisma db seed
 ```
 **✅ Pronto! Seus planos e preços locais agora estão na VPS.**
 
@@ -61,7 +61,7 @@ docker exec -it topseguidores-app npx prisma db seed
 ### Passo 6: Configurar o Domínio (Nginx)
 Agora vamos dizer ao servidor que quem acessar seu domínio deve cair no site (porta 3010):
 ```bash
-sudo nano /etc/nginx/conf.d/topseguidores.conf
+sudo nano /etc/nginx/conf.d/engajamais.conf
 ```
 **Cole isto lá (mude 'seu-dominio.com'):**
 ```nginx
@@ -95,7 +95,7 @@ sudo certbot --nginx -d seu-dominio.com
 
 ## 📋 Comandos de Manutenção (Resumo)
 - **Ver se está rodando:** `docker ps`
-- **Ver logs de erro:** `docker logs -f topseguidores-app`
+- **Ver logs de erro:** `docker logs -f engajamais-app`
 - **Atualizar o site:** 
   ```bash
   git pull

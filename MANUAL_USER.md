@@ -1,6 +1,6 @@
-# 📘 Manual do Administrador - Viraliza Reels (Top Seguidores)
+# 📘 Manual do Administrador - Engaja Mais (engajamais.shop)
 
-Bem-vindo ao manual oficial de operação do sistema **Viraliza Reels**. 
+Bem-vindo ao manual oficial de operação do sistema **EngajaMais**. 
 Esta plataforma foi desenvolvida para rodar no modelo *Drop Servicing* de forma 100% automatizada, conectando o seu gateway de pagamento (PushinPay) diretamente à sua fonte distribuidora de engajamento (Painel SMM / PerfectPanel / DukeFornecedor).
 
 ---
@@ -8,7 +8,7 @@ Esta plataforma foi desenvolvida para rodar no modelo *Drop Servicing* de forma 
 ## 1. Acesso ao Sistema e Segurança
 O painel administrativo é o centro de comando do seu negócio.
 
-- **URL de Acesso:** `https://viralizareels.com/administracao`
+- **URL de Acesso:** `https://engajamais.shop/administracao`
 - **Senha Padrão:** Definida no arquivo `.env` (Variável `ADMIN_PASSWORD`).
 - **Navegação:** Use a barra lateral para alternar entre Dashboard, Gestão de Serviços e Configurações de API.
 

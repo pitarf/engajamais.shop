@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col w-full overflow-hidden bg-[#070b14]">
-      <ViralizaHero title={settings.siteTitle || "ViralizaReels"} />
+      <ViralizaHero title={settings.siteTitle || "EngajaMais.shop"} />
       <ViralizaFAQ />
       <Testimonials />
       <Footer />

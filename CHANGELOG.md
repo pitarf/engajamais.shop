@@ -2,6 +2,12 @@
 
 Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 
+## [0.4.0] - 2026-11-14
+### Alterado
+- **Rebranding Completo**: Migração de marca e domínio para **EngajaMais** (`engajamais.shop`).
+- **Configurações e Metadados**: Atualização de todos os layouts, cabeçalhos, rodapés, SEO, manifest PWA, robots, sitemap e variáveis de ambiente com o novo domínio.
+- **Repositório Git**: Repositório remoto atualizado para `https://github.com/pitarf/engajamais.shop.git`.
+
 ## [0.3.2] - 2026-06-25
 ### Otimizado
 - **Busca Ultra-Rápida do Instagram**: As chamadas de perfil e feed de mídias agora rodam em paralelo via `Promise.all`, reduzindo o tempo de resposta pela metade.

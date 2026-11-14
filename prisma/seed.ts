@@ -12,7 +12,7 @@ async function main() {
     update: {},
     create: {
       id: "1",
-      siteTitle: "Top Seguidores - Especialista em Engajamento",
+      siteTitle: "EngajaMais - Especialista em Engajamento",
       siteDescription: "Impulsione seu Instagram e TikTok com seguidores, curtidas e visualizações reais e rápidos.",
       siteKeywords: "comprar seguidores, instagram, tiktok, curtidas, views, reels",
     },

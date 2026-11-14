@@ -4,28 +4,28 @@ services:
   # Banco de Dados (PostgreSQL)
   postgres-db:
     image: postgres:15-alpine
-    container_name: topseguidores-db
+    container_name: engajamais-db
     restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-admin_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sua_senha_forte}
-      POSTGRES_DB: ${POSTGRES_DB:-topseguidores}
+      POSTGRES_DB: ${POSTGRES_DB:-engajamais}
     ports:
       - "5436:5432"
     volumes:
-      - topseguidores-data:/var/lib/postgresql/data
+      - engajamais-data:/var/lib/postgresql/data
 
   # Aplicação Next.js
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: topseguidores-app
+    container_name: engajamais-app
     restart: always
     ports:
       - "3010:3000"
     environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-admin_user}:${POSTGRES_PASSWORD:-sua_senha_forte}@postgres-db:5432/${POSTGRES_DB:-topseguidores}?schema=public
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-admin_user}:${POSTGRES_PASSWORD:-sua_senha_forte}@postgres-db:5432/${POSTGRES_DB:-engajamais}?schema=public
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
       - NEXTAUTH_URL=${NEXTAUTH_URL}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -38,7 +38,7 @@ services:
       - PERFECT_PANEL_KEY=${PERFECT_PANEL_KEY}
       - FB_PIXEL_ID=${FB_PIXEL_ID}
       - FB_API_TOKEN=${FB_API_TOKEN}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-12@12@12@}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-@novo@102030@}
       - NEXT_PUBLIC_VAPID_PUBLIC_KEY=${NEXT_PUBLIC_VAPID_PUBLIC_KEY}
       - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
       - VAPID_SUBJECT=${VAPID_SUBJECT}
@@ -46,5 +46,5 @@ services:
       - postgres-db
 
 volumes:
-  topseguidores-data:
+  engajamais-data:
     driver: local
