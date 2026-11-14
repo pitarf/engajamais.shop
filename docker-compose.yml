@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sua_senha_forte}
       POSTGRES_DB: ${POSTGRES_DB:-engajamais}
     ports:
-      - "5436:5432"
+      - "5437:5432"
     volumes:
       - engajamais-data:/var/lib/postgresql/data
 
@@ -23,7 +23,7 @@ services:
     container_name: engajamais-app
     restart: always
     ports:
-      - "3010:3000"
+      - "3015:3000"
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER:-admin_user}:${POSTGRES_PASSWORD:-sua_senha_forte}@postgres-db:5432/${POSTGRES_DB:-engajamais}?schema=public
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
