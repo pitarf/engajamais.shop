@@ -15,7 +15,8 @@ export async function searchInstagramProfile(username: string) {
     const res = await fetch(`https://instagram360.p.rapidapi.com/userinfo/?username_or_id=${clean}`, {
       headers: {
         "x-rapidapi-key": apiKey,
-        "x-rapidapi-host": "instagram360.p.rapidapi.com"
+        "x-rapidapi-host": "instagram360.p.rapidapi.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       },
       signal: AbortSignal.timeout(8000)
     });
@@ -47,7 +48,8 @@ export async function getInstagramFeed(username: string, type: 'reels' | 'posts'
     const res = await fetch(url, {
       headers: {
         "x-rapidapi-key": apiKey,
-        "x-rapidapi-host": "instagram360.p.rapidapi.com"
+        "x-rapidapi-host": "instagram360.p.rapidapi.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       },
       signal: AbortSignal.timeout(10000)
     });
@@ -67,7 +69,8 @@ export async function searchTikTokProfile(username: string) {
     const res = await fetch(`https://tiktok-api23.p.rapidapi.com/api/user/info?uniqueId=${clean}`, {
       headers: {
         "x-rapidapi-key": apiKey,
-        "x-rapidapi-host": "tiktok-api23.p.rapidapi.com"
+        "x-rapidapi-host": "tiktok-api23.p.rapidapi.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       },
       signal: AbortSignal.timeout(8000)
     });
@@ -97,7 +100,8 @@ export async function getTikTokFeed(secUidOrUsername: string, cursor?: string) {
     const res = await fetch(url, {
       headers: {
         "x-rapidapi-key": apiKey,
-        "x-rapidapi-host": "tiktok-api23.p.rapidapi.com"
+        "x-rapidapi-host": "tiktok-api23.p.rapidapi.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       },
       signal: AbortSignal.timeout(10000)
     });
