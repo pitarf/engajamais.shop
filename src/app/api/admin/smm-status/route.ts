@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
 
 export async function POST(req: Request) {
   try {
@@ -7,8 +8,10 @@ export async function POST(req: Request) {
       return NextResponse.json({});
     }
 
-    const apiUrl = process.env.PERFECTPANEL_API_URL;
-    const apiKey = process.env.PERFECTPANEL_API_KEY;
+    const settings = await prisma.systemSetting.findFirst();
+
+    const apiUrl = settings?.perfectPanelUrl || process.env.PERFECT_PANEL_URL || process.env.PERFECTPANEL_API_URL;
+    const apiKey = settings?.perfectPanelKey || process.env.PERFECT_PANEL_KEY || process.env.PERFECTPANEL_API_KEY;
 
     if (!apiUrl || !apiKey) {
       return NextResponse.json({ error: "Credenciais do PerfectPanel ausentes" });
