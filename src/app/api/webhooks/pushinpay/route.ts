@@ -158,8 +158,8 @@ export async function POST(req: Request) {
         const planoNome = order.plan.name || "Plano";
 
         await sendAdminPurchaseNotification({
-          title: `💰 Nova Venda Aprovada! (${precoFormatado})`,
-          message: `${planoNome} (${qtdFormatada}) para ${order.instagramUrl}`,
+          title: "Nova Venda!",
+          message: `Você fez uma venda de ${precoFormatado}`,
           orderId: order.id,
           amount: order.amount,
           price: Number(order.price),
