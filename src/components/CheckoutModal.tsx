@@ -267,15 +267,36 @@ export function CheckoutModal() {
   };
 
   const handleGeneratePix = async () => {
-
     setLoading(true);
     try {
+      const cleanUser = username.replace("@", "").trim();
+      let targetUrl = `https://instagram.com/${cleanUser}`;
+
+      if (platform === 'tiktok') {
+        if (service === 'seguidores' || !selectedPost) {
+          targetUrl = `https://www.tiktok.com/@${cleanUser}`;
+        } else {
+          targetUrl = `https://www.tiktok.com/@${cleanUser}/video/${selectedPost.code || selectedPost.id}`;
+        }
+      } else {
+        // Instagram
+        if (service === 'seguidores' || !selectedPost) {
+          targetUrl = `https://www.instagram.com/${cleanUser}/`;
+        } else {
+          const code = selectedPost.code || selectedPost.id;
+          const isReel = selectedPost.type === 'reels' || service === 'visualizacoes';
+          targetUrl = isReel 
+            ? `https://www.instagram.com/reel/${code}/`
+            : `https://www.instagram.com/p/${code}/`;
+        }
+      }
+
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           planId: selectedPlan?.id,
-          instagramUrl: `https://instagram.com/${username.replace("@", "")}`,
+          instagramUrl: targetUrl,
         }),
       });
       const data = await res.json();
