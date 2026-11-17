@@ -115,15 +115,35 @@ export function SettingsForm({ initialData }: { initialData: any }) {
         </div>
       </div>
 
-      {/* Facebook Tracking */}
+      {/* Facebook & Google Tracking */}
       <div className="bg-[#0b111e] border border-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-[2rem] shadow-2xl space-y-6">
         <h2 className="text-xl font-black text-[#1877F2] tracking-tight uppercase mb-6 flex items-center gap-2">
-          Facebook Tracking
+          Tracking & Tags (Google / Meta)
         </h2>
         
         <div className="space-y-4">
           <div>
-            <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest block mb-2">Pixel ID</label>
+            <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest block mb-2">
+              Tags / Scripts do Cabeçalho (&lt;head&gt;) - Google Tag Manager / Analytics / Scripts
+            </label>
+            <textarea 
+              placeholder={`<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXX"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  ...\n</script>`}
+              value={data.customHeadScripts !== undefined ? (data.customHeadScripts || "") : `<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PS37PHLB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>`} 
+              onChange={e => setData({...data, customHeadScripts: e.target.value})}
+              className="w-full bg-[#050810] border border-white/5 rounded-xl px-4 py-3 text-emerald-400 font-mono text-xs font-medium focus:border-emerald-500/50 outline-none h-44 resize-y leading-relaxed"
+            />
+            <p className="text-[11px] text-zinc-500 mt-2 font-medium">
+              💡 As tags inseridas acima são injetadas diretamente no carregamento de todas as páginas públicas do site.
+            </p>
+          </div>
+
+          <div className="pt-4 border-t border-white/5">
+            <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest block mb-2">Pixel ID (Facebook)</label>
             <input 
               type="text" 
               placeholder="Ex: 1234567890"

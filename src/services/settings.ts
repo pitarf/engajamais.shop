@@ -36,6 +36,12 @@ export async function getSystemSettings() {
       logoUrl: null,
       fbPixelId: null,
       fbApiToken: null,
+      customHeadScripts: `<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PS37PHLB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>`,
       whatsappNumber: "",
       updatedAt: new Date(),
     } as any;

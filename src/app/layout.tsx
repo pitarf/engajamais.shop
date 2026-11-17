@@ -81,6 +81,15 @@ export default async function RootLayout({
 
   return (
     <html lang="pt-BR" className="dark">
+      <head>
+        {settings.customHeadScripts && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: settings.customHeadScripts,
+            }}
+          />
+        )}
+      </head>
       <body
         className={`${poppins.variable} ${inter.variable} antialiased selection:bg-primary selection:text-white`}
       >
