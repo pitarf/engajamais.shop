@@ -150,16 +150,11 @@ export async function POST(req: Request) {
 
       // 8. Disparo de Notificação Web Push para o Administrador (Celular + Web)
       try {
-        const precoFormatado = Number(order.price).toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        });
-        const qtdFormatada = order.amount.toLocaleString("pt-BR");
-        const planoNome = order.plan.name || "Plano";
+        const valorFormatado = Number(order.price).toFixed(2).replace(".", ",");
 
         await sendAdminPurchaseNotification({
-          title: "Nova Venda!",
-          message: `Você fez uma venda de ${precoFormatado}`,
+          title: "Venda realizada",
+          message: `Você fez uma venda de R$${valorFormatado}`,
           orderId: order.id,
           amount: order.amount,
           price: Number(order.price),
