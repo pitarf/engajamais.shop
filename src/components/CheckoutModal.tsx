@@ -627,13 +627,28 @@ export function CheckoutModal() {
                     </div>
                   </div>
 
-                  {/* Profile Preview */}
+                  {/* Profile & Selected Post Preview */}
                   {profileData && (
                     <div className="bg-white/5 border border-white/5 p-3.5 rounded-2xl flex items-center gap-3 text-left">
-                      <img src={`https://images.weserv.nl/?url=${encodeURIComponent(profileData.profile_pic_url)}`} className="w-11 h-11 rounded-full border-2 border-primary/30 object-cover shrink-0" alt="Avatar" />
+                      {selectedPost?.url ? (
+                        <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-primary/50 shrink-0">
+                          <img 
+                            src={`https://images.weserv.nl/?url=${encodeURIComponent(selectedPost.url)}&w=150&h=150&fit=cover`} 
+                            className="w-full h-full object-cover" 
+                            alt="Publicação selecionada" 
+                          />
+                          <div className="absolute bottom-0 right-0 bg-primary px-1 rounded-tl text-[8px] font-black text-white">
+                            {selectedPost.type === 'reels' ? 'REEL' : 'POST'}
+                          </div>
+                        </div>
+                      ) : (
+                        <img src={`https://images.weserv.nl/?url=${encodeURIComponent(profileData.profile_pic_url)}`} className="w-11 h-11 rounded-full border-2 border-primary/30 object-cover shrink-0" alt="Avatar" />
+                      )}
                       <div className="flex-1 min-w-0">
                         <h3 className="text-white font-black text-sm truncate">@{profileData.username}</h3>
-                        <p className="text-zinc-500 font-bold text-[9px] uppercase tracking-widest">{profileData.followers} seguidores</p>
+                        <p className="text-zinc-400 font-bold text-[9px] uppercase tracking-wider">
+                          {selectedPost ? "Publicação selecionada 🎯" : `${profileData.followers} seguidores`}
+                        </p>
                       </div>
                     </div>
                   )}
